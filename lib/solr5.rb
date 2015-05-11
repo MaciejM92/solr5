@@ -6,8 +6,7 @@ module Solr5
     config = YAML.load_file("#{Rails.root}/config/sunspot.yml")[Rails.env]['solr'].symbolize_keys!
 
     [:path, :bin, :configset].each do |required|
-      puts "#{required} must be specified in sunspot.yml for proper use of solr5 gem"
-      abort 'rake aborted!'
+      abort "#{required} must be specified in sunspot.yml for proper use of solr5 gem\nrake aborted!" unless config.include? required
     end
 
     config.reverse_merge( hostname: 'localhost', port: 8983 )
