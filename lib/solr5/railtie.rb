@@ -1,7 +1,6 @@
-require 'solr5'
 require 'rails'
 
-module Btp
+module Solr5
   class Railtie < Rails::Railtie
     rake_tasks do
       load "tasks/solr5_tasks.rb"
