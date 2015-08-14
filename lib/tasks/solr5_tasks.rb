@@ -26,5 +26,10 @@ namespace :solr5 do
     task :delete do
       Solr5::Core.new.delete
     end
+
+    desc 'Update solr5 core'
+    task :update do
+      Solr5::Core.new.update
+    end
   end
 end

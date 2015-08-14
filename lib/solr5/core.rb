@@ -16,5 +16,10 @@ module Solr5
     def delete
       exec "#{@config[:bin]} delete -c #{@config[:path].split('/').last} -p #{@config[:port]}"
     end
+
+    def update
+      exec "#{@config[:bin]} delete -c #{@config[:path].split('/').last} -p #{@config[:port]};#{@config[:bin]} create -c #{@config[:path].split('/').last} -p #{@config[:port]} -d #{@config[:configset]}"
+    end
+
   end
 end
